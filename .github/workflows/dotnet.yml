@@ -27,9 +27,13 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Archive build output
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4.6.0
       with:
+        retention-days: 3
+        compression-level: 7
         name: build-output
         path: |
           **/bin/**/*
           **/obj/**/*
+
+          
